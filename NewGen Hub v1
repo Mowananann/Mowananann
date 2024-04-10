@@ -1,0 +1,135 @@
+wait (2)
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Loaded successfully";
+	Text = "Enjoy";
+	Icon = "rbxthumb://type=Asset&id=11602284370&w=150&h=150"})
+Duration = "20000";
+Button1 = "IT DID LOAD";
+Button2 = "IT DIDNT LOAD";
+
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("NextGen Hub (BaconHub X)", "Serpent")
+local Tab = Window:NewTab("Credits")
+local Section = Tab:NewSection("Credits:")
+Section:NewLabel("Made By Me")
+Section:NewLabel("ALSO THIS SCRIPT IS THE CONTINUATION OF")
+Section:NewLabel("BACONHUB")
+local Section1 = Tab:NewSection("Updates!")
+local Tab1 = Window:NewTab("Main")
+local Section2 = Tab1:NewSection("Good shit")
+Section2:NewButton("OG NextGen (no more updates)", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Mowananann/BaconHub-x/main/BaconHub-x"))()
+end)
+local Section3 = Tab1:NewSection("Admin Scripts!")
+Section3:NewButton("Infinite yeild", "Most well known admin script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+Section3:NewButton("Fates Admin (recommended for pc)", "like i said recommended for pc dumbasses", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
+Section3:NewButton("Nameless Admin (recommended for mobile)", "nothing to say here xd", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
+end)
+Section3:NewButton("iv admin v3", "pretty good and cool", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyBurns/Hex/main/Iv%20Admin%20v3.lua"))()
+end)
+local Section4 = Tab1:NewSection("Useful Stuff")
+Section4:NewButton("Rejoin", "self explanatory", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+Section4:NewButton("ServerHop", "Self explatanory", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/VduBT2nt"))()
+end)
+local Section5 = Tab1:NewSection("Random things that maybe useful stuff")
+Section5:NewSlider("WalkSpeed", "Changes your Walkspeed", 999, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+Section5:NewSlider("JumpPower", "Changes your JumpPower", 9999, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+Section5:NewButton("Reset walkspeed", "Resets your walkspeed", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+Section5:NewButton("Reset JumpPower", "Resets Jump Power", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+Section5:NewButton("infinite jump toggle script", "Cool", function()
+    local gui = Instance.new("ScreenGui")
+gui.Name = "DraggableGUI"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Name = "DraggableFrame"
+frame.Size = UDim2.new(0, 200, 0, 100)
+frame.Position = UDim2.new(0, 100, 0, 100)
+frame.BackgroundTransparency = 0.4
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
+
+local button = Instance.new("TextButton")
+button.Name = "InfJumpButton"
+button.Size = UDim2.new(0.8, 0, 0, 30)
+button.Position = UDim2.new(0.1, 0, 0.5, -15)
+button.BackgroundColor3 = Color3.new(0, 0.5, 1)
+button.Font = Enum.Font.SourceSans
+button.TextColor3 = Color3.new(1, 1, 1)
+button.TextSize = 14
+button.Text = "InfJump"
+button.Parent = frame
+
+local label = Instance.new("TextLabel")
+label.Name = "CreatorLabel"
+label.Size = UDim2.new(0, 200, 0, 20)
+label.Position = UDim2.new(0, 0, 0, -20)
+label.BackgroundTransparency = 1
+label.Font = Enum.Font.SourceSansBold
+label.TextColor3 = Color3.new(1, 1, 1)
+label.TextSize = 14
+label.Text = "Made by Bacon_dev/mowananann"
+label.Parent = frame
+
+local infiniteJumpEnabled = false
+
+local function onButtonClick()
+    infiniteJumpEnabled = not infiniteJumpEnabled
+    button.Text = infiniteJumpEnabled and "Disable InfJump" or "Enable InfJump"
+end
+
+button.MouseButton1Click:Connect(onButtonClick)
+
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if infiniteJumpEnabled then
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end
+end)
+end)
+local Tab2 = Window:NewTab("Games")
+local Section6 = Tab2:NewSection("Games that start with A")
+
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.new(0, 0, 0)
+Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+Toggle.Size = UDim2.new(0, 90, 0, 38)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Gui Toggle"
+Toggle.TextColor3 = Color3.fromRGB(60, 179, 113)
+Toggle.TextSize = 27.000
+Toggle.Draggable = true
+Toggle.MouseButton1Click:connect(function()
+    Library:ToggleUI()
+end)
+
+local Corner = Instance.new("UICorner")
+Corner.Name = "Corner"
+Corner.Parent = Toggle
